@@ -12,6 +12,7 @@
  1. Install ```aiosmtpd``` and ```python-telegram-bot``` dependencies like this:
    ```
    pip3 install aiosmtpd python-telegram-bot
+   pip install python-telegram-bot==13.13
    ```
  2. Replace ```your_tg_bot_token_here``` and ```your_chat_id_here``` with your bot token and chat_id
  3. Run ```./goip_to_tg.py``` from root (because you need to bind TCP/25)
