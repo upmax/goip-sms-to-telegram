@@ -20,3 +20,26 @@
 
  ## Everything else
  Feel free to open an issue if you need any help. Star and follow are appreciated 😉
+
+Auto-Connect on System Startup
+nano /etc/systemd/system/goip_to_tg.service
+```
+[Unit]
+  Description=goip_to_tg
+  #After=network-online.target systemd-resolved.service
+  #Wants=network-online.target
+
+[Service]
+  Type=simple
+  ExecStart=/bin/bash -c '/root/goip-sms-to-telegram/goip_to_tg.py'
+  KillSignal=SIGINT
+  Restart=always
+  RestartSec=10
+
+[Install]
+  WantedBy=multi-user.target
+```
+
+systemctl enable goip_to_tg.service
+systemctl start goip_to_tg
+systemctl stop goip_to_tg
